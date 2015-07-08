@@ -5,7 +5,7 @@ Convert markdown into react components
 There are several projects that claims to convert markdown using React, but that is not exactly right. They produce one single React component with some plain markdown converted HTML in it. They do not produce React components of the markdown syntax. **But this project does!**
 
 ## Features
-- Converts markdown syntax to React components. It is a lot more performant
+- Converts markdown syntax to React components. It is a lot more performant on live changes
 - Define your own components to be used as headers, lists etc.
 - Code highlighting included
 - Also returns a TOC (Table Of Contents), based on headers used
