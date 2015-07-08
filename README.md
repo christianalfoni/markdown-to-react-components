@@ -9,7 +9,7 @@ There are several projects that claims to convert markdown using React, but that
 - Define your own components to be used as headers, lists etc.
 - Code highlighting included
 - Also returns a TOC (Table Of Contents), based on headers used
-- TOC and Header ids match so that you can use anchor links (<a href="#my-heading">My heading</a>)
+- TOC and Header ids match so that you can use anchor links (&lt;a href="#my-heading&gt;My heading&lt;/a&gt;)
 
 ## Install
 `npm install markdown-to-react-components`. **Note!** You will also need the `json-loader` if you are using Webpack.
@@ -22,7 +22,7 @@ import MTRC from 'markdown-to-react-components';
 MTRC.configure({
   h1: React.createClass({
     render() {
-      return <h1 style={{color: 'red'}}>{this.props.children}</h1>
+      return <h1 id={this.props.id} style={{color: 'red'}}>{this.props.children}</h1>
     }
   })
 });
@@ -56,13 +56,13 @@ You will have to include some CSS to style your code. Look in the example app to
 
 ```js
 
-  ```javascript
-  var foo = 'bar';
-  ```
+    ```javascript
+    var foo = 'bar';
+    ```
 
-  ```html
-  <h1>Hello world!</h1>
-  ```
+    ```html
+    <h1>Hello world!</h1>
+    ```
 
 ```
 Supported languages can be found over at [highlight.js](https://highlightjs.org/).
