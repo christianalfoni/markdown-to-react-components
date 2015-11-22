@@ -1,6 +1,6 @@
 {
   "name": "markdown-to-react-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Convert markdown into react components",
   "main": "src/index.js",
   "scripts": {
@@ -22,9 +22,6 @@
     "url": "https://github.com/christianalfoni/markdown-to-react-components/issues"
   },
   "homepage": "https://github.com/christianalfoni/markdown-to-react-components",
-  "peerDependencies": {
-    "react": "^0.13.3"
-  },
   "devDependencies": {
     "css-loader": "^0.15.2",
     "node-libs-browser": "^0.5.2",
