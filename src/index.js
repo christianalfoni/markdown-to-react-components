@@ -37,7 +37,17 @@ var getTocPosition = function (toc, level) {
 };
 
 renderer.code = function (code, language) {
-  result.push(CodeComponent({key: keys++, language: language, code: code}));
+  var props = {
+    key: keys++,
+    language: language,
+    code: code
+  };
+
+  if (options.code) {
+    result.push(React.createElement(options.code, props));
+  } else {
+    result.push(CodeComponent(props));
+  }
 };
 
 renderer.blockquote = function (text) {
