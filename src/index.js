@@ -138,7 +138,7 @@ renderer.link = function (href, title, text) {
     title: title,
     key: keys++,
     target: 'new'
-  }, ent.decode(text));
+  }, createBlockContent(text));
   return '{{' + id + '}}';
 };
 
