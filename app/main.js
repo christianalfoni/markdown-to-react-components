@@ -1,4 +1,5 @@
-require('highlight.js/styles/agate.css');
+require('./prism.css');
+require('./prism.js');
 var React = require('react');
 var lib = require('markdown-to-react-components');
 var DOM = React.DOM;

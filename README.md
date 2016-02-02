@@ -7,7 +7,7 @@ There are several projects that claims to convert markdown using React, but that
 ## Features
 - Converts markdown syntax to React components. It is a lot more performant on live changes
 - Define your own components to be used as headers, lists etc.
-- Code highlighting included
+- Code highlighting using Prism.js
 - Also returns a TOC (Table Of Contents), based on headers used
 - TOC and Header ids match so that you can use anchor links (&lt;a href="#my-heading&gt;My heading&lt;/a&gt;)
 
@@ -52,7 +52,7 @@ export default Editor;
 ```
 
 ## Code highlight
-You will have to include some CSS to style your code. Look in the example app to see how the default styles from [highlight.js](https://highlightjs.org/) is included, or just roll your own.
+You will have to include the [Prism.js](https://prismjs.com/) library and its css manually in your project. Look in the example app to see how this is done.
 
 ```js
 
@@ -65,7 +65,7 @@ You will have to include some CSS to style your code. Look in the example app to
     ```
 
 ```
-Supported languages can be found over at [highlight.js](https://highlightjs.org/).
+Supported languages can be found over at [prism.js](https://prismjs.com/).
 
 ## API
 

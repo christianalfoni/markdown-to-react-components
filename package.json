@@ -1,6 +1,6 @@
 {
   "name": "markdown-to-react-components",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Convert markdown into react components",
   "main": "src/index.js",
   "scripts": {
@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "ent": "^2.2.0",
-    "highlight.js": "^8.6.0",
     "marked": "^0.3.3"
   }
 }

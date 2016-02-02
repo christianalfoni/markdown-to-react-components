@@ -1,17 +1,25 @@
 var React = require('react');
-var hljs = require('highlight.js');
 
 var CodeComponent = React.createClass({
   componentDidMount: function () {
-    this.refs.code.innerHTML = hljs.highlight(this.props.language, this.props.code).value;
+    if (!Prism) {
+      console.warn('You do not have Prism included as a global object');
+      return;
+    }
+    Prism.highlightAll();
   },
   componentDidUpdate: function () {
-    this.refs.code.innerHTML = hljs.highlight(this.props.language, this.props.code).value;
+    if (!Prism) {
+      console.warn('You do not have Prism included as a global object');
+      return;
+    }
+    Prism.highlightAll();
   },
   render: function () {
     return React.createElement('pre', {key: this.props.key},
       React.createElement('code', {
-          ref: 'code'
+          ref: 'code',
+          className: 'language-' + this.props.language
         }, this.props.code)
     );
   }
