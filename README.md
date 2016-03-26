@@ -99,7 +99,7 @@ MTRC.configure({
 - **a**: this.props.children, this.props.href, this.props.title, this.props.target
 - **strong**: this.props.children
 - **em**: this.props.children
-- **br**: this.props.children
+- **br**: -
 - **del**: this.props.children
 - **img**: this.props.src, this.props.alt
 
