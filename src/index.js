@@ -160,9 +160,9 @@ renderer.codespan = function (text) {
   return '{{' + id + '}}';
 };
 
-renderer.br = function (text) {
+renderer.br = function () {
   var id = inlineIds++;
-  inlines[id] = React.createElement(options.br || 'br', {key: keys++}, ent.decode(text));
+  inlines[id] = React.createElement(options.br || 'br', {key: keys++});
   return '{{' + id + '}}';
 };
 
