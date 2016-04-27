@@ -52,9 +52,7 @@ renderer.code = function (code, language) {
 
 renderer.blockquote = function (text) {
   result.pop();
-  result.push(React.createElement(options.blockquote || 'blockquote', null,
-    React.createElement('p', {key: keys++}, createBlockContent(text))
-  ));
+  result.push(React.createElement(options.blockquote || 'blockquote', {key: keys++}, createBlockContent(text)));
 };
 
 // How does this happen?
