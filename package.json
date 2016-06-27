@@ -32,7 +32,7 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
-    "ent": "^2.2.0",
+    "he": "^1.1.0",
     "marked": "^0.3.3"
   }
 }

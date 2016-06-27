@@ -1,6 +1,6 @@
 var React = require('react');
 var marked = require('marked');
-var ent = require('ent');
+var he = require('he');
 var CodeComponent = React.createFactory(require('./CodeComponent.js'));
 var renderer = new marked.Renderer();
 var options = {};
@@ -19,7 +19,7 @@ var createBlockContent = function (content) {
     if (inline) {
       return inlines[inline[1]];
     } else {
-      return ent.decode(text);
+      return he.decode(text);
     }
   });
   return content;
@@ -142,19 +142,19 @@ renderer.link = function (href, title, text) {
 
 renderer.strong = function (text) {
   var id = inlineIds++;
-  inlines[id] = React.createElement(options.strong || 'strong', {key: keys++}, ent.decode(text));
+  inlines[id] = React.createElement(options.strong || 'strong', {key: keys++}, he.decode(text));
   return '{{' + id + '}}';
 };
 
 renderer.em = function (text) {
   var id = inlineIds++;
-  inlines[id] = React.createElement(options.em || 'em', {key: keys++}, ent.decode(text));
+  inlines[id] = React.createElement(options.em || 'em', {key: keys++}, he.decode(text));
   return '{{' + id + '}}';
 };
 
 renderer.codespan = function (text) {
   var id = inlineIds++;
-  inlines[id] = React.createElement('code', {key: keys++}, ent.decode(text));
+  inlines[id] = React.createElement('code', {key: keys++}, he.decode(text));
   return '{{' + id + '}}';
 };
 
@@ -166,7 +166,7 @@ renderer.br = function () {
 
 renderer.del = function (text) {
   var id = inlineIds++;
-  inlines[id] = React.createElement(options.del || 'del', {key: keys++}, ent.decode(text));
+  inlines[id] = React.createElement(options.del || 'del', {key: keys++}, he.decode(text));
   return '{{' + id + '}}';
 };
 
