@@ -12,7 +12,7 @@ There are several projects that claims to convert markdown using React, but that
 - TOC and Header ids match so that you can use anchor links (&lt;a href="#my-heading&gt;My heading&lt;/a&gt;)
 
 ## Install
-`npm install markdown-to-react-components`. **Note!** You will also need the `json-loader` if you are using Webpack.
+`npm install markdown-to-react-components`
 
 ## How to use
 ```js
