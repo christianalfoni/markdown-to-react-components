@@ -102,6 +102,7 @@ MTRC.configure({
 - **br**: -
 - **del**: this.props.children
 - **img**: this.props.src, this.props.alt
+- **code**: this.props.language, this.props.code
 
 ### Convert
 ```js
