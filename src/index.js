@@ -154,7 +154,7 @@ renderer.em = function (text) {
 
 renderer.codespan = function (text) {
   var id = inlineIds++;
-  inlines[id] = React.createElement('code', {key: keys++}, he.decode(text));
+  inlines[id] = React.createElement(options.codespan || 'code', {key: keys++}, he.decode(text));
   return '{{' + id + '}}';
 };
 
