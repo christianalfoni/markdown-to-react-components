@@ -55,9 +55,18 @@ renderer.blockquote = function (text) {
   result.push(React.createElement(options.blockquote || 'blockquote', {key: keys++}, createBlockContent(text)));
 };
 
-// How does this happen?
 renderer.html = function (html) {
-  return html;
+    result.push(React.createElement(options.html || React.createClass({
+        render: function render () {
+            return React.createElement('div', {
+                dangerouslySetInnerHTML: {
+                    __html: this.props.html
+                }
+            });
+        }
+    }), {
+        html: html
+    }));
 };
 
 renderer.heading = function (text, level) {
