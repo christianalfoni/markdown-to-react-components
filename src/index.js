@@ -12,7 +12,6 @@ var toc = [];
 
 // Converts inline IDs to actual elements
 var createBlockContent = function (content) {
-
   var textWithInlines = content.split(/(\{\{.*?\}\})/);
   content = textWithInlines.map(function (text) {
     var inline = text.match(/\{\{(.*)\}\}/);
@@ -51,7 +50,12 @@ renderer.code = function (code, language) {
 };
 
 renderer.blockquote = function (text) {
-  result.pop();
+  var count = text.split(/(\{\{.*?\}\})/).filter(function(n){ return n != ""});
+  
+  count.forEach(function(){
+    result.pop();
+  });
+  
   result.push(React.createElement(options.blockquote || 'blockquote', {key: keys++}, createBlockContent(text)));
 };
 
@@ -90,11 +94,14 @@ renderer.heading = function (text, level) {
       children: []
     });
   }
-  result.push(React.createElement(type, {
+  var inId = inlineIds++;
+  inlines[inId] = React.createElement(type, {
     key: keys++,
     id: id
   },
-    createBlockContent(text)));
+    createBlockContent(text));
+  result.push(inlines[inId]);
+  return '{{' + inId + '}}';
 };
 
 renderer.hr = function () {
@@ -102,7 +109,11 @@ renderer.hr = function () {
 };
 
 renderer.list = function (body, ordered) {
-  result.push(React.createElement(ordered ? options.ol || 'ol' : options.ul || 'ul', {key: keys++}, createBlockContent(body)));
+  var id = inlineIds++;
+  inlines[id] = React.createElement(ordered ? options.ol || 'ol' : options.ul || 'ul', {key: keys++}, createBlockContent(body));
+  result.push(inlines[id]);
+  return '{{' + id + '}}';
+
 };
 
 renderer.listitem = function (text) {
@@ -119,10 +130,13 @@ renderer.paragraph = function (text) {
 };
 
 renderer.table = function (header, body) {
-  result.push(React.createElement(options.table || 'table', {key: keys++},
+  var id = inlineIds++;
+  inlines[id] =  React.createElement(options.table || 'table', {key: keys++},
     createBlockContent(header),
     createBlockContent(body)
-  ));
+  );
+  result.push(inlines[id]);
+  return '{{' + id + '}}';
 };
 
 renderer.tablerow = function (content) {
