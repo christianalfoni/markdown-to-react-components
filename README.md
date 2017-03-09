@@ -92,6 +92,8 @@ MTRC.configure({
 - **ul**: this.props.children
 - **p**: this.props.children
 - **table**: this.props.children
+- **thead**: this.props.children
+- **tbody**: this.props.children
 - **tr**: this.props.children
 - **th**: this.props.children
 - **td**: this.props.children
