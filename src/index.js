@@ -51,11 +51,11 @@ renderer.code = function (code, language) {
 
 renderer.blockquote = function (text) {
   var count = text.split(/(\{\{.*?\}\})/).filter(function(n){ return n != ""});
-  
+
   count.forEach(function(){
     result.pop();
   });
-  
+
   result.push(React.createElement(options.blockquote || 'blockquote', {key: keys++}, createBlockContent(text)));
 };
 
@@ -132,10 +132,22 @@ renderer.paragraph = function (text) {
 renderer.table = function (header, body) {
   var id = inlineIds++;
   inlines[id] =  React.createElement(options.table || 'table', {key: keys++},
-    createBlockContent(header),
-    createBlockContent(body)
+    React.createElement(options.thead || 'thead', null, createBlockContent(header)),
+    React.createElement(options.tbody || 'tbody', null, createBlockContent(body))
   );
   result.push(inlines[id]);
+  return '{{' + id + '}}';
+};
+
+renderer.thead = function (content) {
+  var id = inlineIds++;
+  inlines[id] = React.createElement(options.thead || 'thead', {key: keys++}, createBlockContent(content));
+  return '{{' + id + '}}';
+};
+
+renderer.tbody = function (content) {
+  var id = inlineIds++;
+  inlines[id] = React.createElement(options.tbody || 'tbody', {key: keys++}, createBlockContent(content));
   return '{{' + id + '}}';
 };
 
