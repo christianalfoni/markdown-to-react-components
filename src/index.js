@@ -24,8 +24,6 @@ var createBlockContent = function (content) {
     }
   });
 
-	console.log(content)
-
   return content;
 };
 
