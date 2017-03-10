@@ -18,9 +18,14 @@ var createBlockContent = function (content) {
     if (inline) {
       return inlines[inline[1]];
     } else {
-      return he.decode(text);
+			if (text != '') {
+      	return he.decode(text);
+			}
     }
   });
+
+	console.log(content)
+
   return content;
 };
 
