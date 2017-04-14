@@ -2,14 +2,14 @@ var React = require('react');
 
 var CodeComponent = React.createClass({
   componentDidMount: function () {
-    if (!Prism) {
+    if (typeof Prism === 'undefined') {
       console.warn('You do not have Prism included as a global object');
       return;
     }
     Prism.highlightAll();
   },
   componentDidUpdate: function () {
-    if (!Prism) {
+    if (typeof Prism === 'undefined') {
       console.warn('You do not have Prism included as a global object');
       return;
     }
