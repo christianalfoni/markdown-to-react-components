@@ -1,6 +1,7 @@
 var React = require('react');
+var createReactClass = require('create-react-class');
 
-var CodeComponent = React.createClass({
+var CodeComponent = createReactClass({
   componentDidMount: function () {
     if (typeof Prism === 'undefined') {
       console.warn('You do not have Prism included as a global object');
